@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="v_impaired_mode"
+        android:title="@string/v_impaired_setting"
+        android:summary="@string/v_impaired_summ"
+        android:defaultValue="false" />
+    <CheckBoxPreference
+        android:key="a_impaired_mode"
+        android:title="@string/a_impaired_setting"
+        android:summary="@string/a_impaired_summ"
+        android:defaultValue="false" />
+    <EditTextPreference
+        android:key="e_call_number"
+        android:title="@string/e_call_number"
+        android:defaultValue="0000000000" />
+</PreferenceScreen>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">SCALE</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_open">Open Windows</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="CALL">CALL</string>
+    <string name="action_switch">switch</string>
+    <string name="title_activity_display_message_Alert">Alert</string>
+    <string name="title_activity_display_message_warning">Warning</string>
+    <string name="title_activity_display_message_advice">Advice</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="message"> massage</string>
+
+    <string name="hello_world"> </string>
+
+    <string name="v_impaired_setting">Visually Impaired Mode</string>
+    <string name="a_impaired_setting">Auditory Impaired Mode</string>
+    <string name="e_call_number">Emergency Call Number</string>
+
+    <string name="v_impaired_summ">When turned on, all messages displayed by this program will be read aloud.</string>
+    <string name="a_impaired_summ">When turned on, the screen will flash and the phone will rumble when a message is displayed.</string>
+
+</resources>

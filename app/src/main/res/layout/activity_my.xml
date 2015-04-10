@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"  android:orientation="vertical">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="#ffdb1a49"
+
+            android:layout_marginLeft="80dp"
+            android:onClick="sendAlertMessage"
+            android:layout_marginTop="30dp"
+            android:textSize="50dp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_gravity="right"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="#ffe8bb32"
+            android:layout_marginLeft="80dp"
+            android:onClick="sendWarningMessage"
+            android:layout_marginTop="0dp"
+            android:textSize="50dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="143dp"
+        android:layout_gravity="right"
+        android:weightSum="1" >
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="#ff7ca5db"
+            android:layout_marginLeft="80dp"
+            android:onClick="sendAdviceMessage"
+            android:layout_marginTop="0dp"
+            android:textSize="50dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="48dp"
+            android:background="@drawable/call"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="40dp"
+            android:onClick="calling"/>
+
+        <Button
+            android:id="@+id/buttonCall"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:singleLine="true"
+            android:text="@string/CALL"
+            android:background="#b8b4b4"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="48dp"
+            android:textSize="39dp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
