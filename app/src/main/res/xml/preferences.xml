@@ -14,4 +14,23 @@
         android:key="e_call_number"
         android:title="@string/e_call_number"
         android:defaultValue="0000000000" />
+
+    <EditTextPreference
+        android:title="MQTT Topic"
+        android:summary="Provide Topic for Pub/Sub"
+        android:key="#" />
+
+    <CheckBoxPreference
+        android:title="Broker Discovery?"
+        android:summaryOn="Check the box for manual entry"
+        android:summaryOff="Check the box for manual entry"
+        android:key="chkbox_manual_entry" />
+
+    <uci.scale.IPAddressPreference
+        android:title="MQTT Broker"
+        android:summary="Enter IP Valid IP Address"
+        android:key="broker"
+        android:dependency="chkbox_manual_entry">
+    </uci.scale.IPAddressPreference>
+
 </PreferenceScreen>

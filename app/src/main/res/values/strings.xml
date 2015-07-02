@@ -19,7 +19,15 @@
     <string name="a_impaired_setting">Auditory Impaired Mode</string>
     <string name="e_call_number">Emergency Call Number</string>
 
-    <string name="v_impaired_summ">When turned on, all messages displayed by this program will be read aloud.</string>
+    <string name="v_impaired_summ">When turned on, all messages displayed by this program will be read aloud. Requires the TTS engine to be installed.</string>
     <string name="a_impaired_summ">When turned on, the screen will flash and the phone will rumble when a message is displayed.</string>
+    <string name="preferenceBrokerHost">dime.smartamerica.io</string>
+    <string name="preferenceBrokerUser">#</string>
 
+
+    <string name="start_service">Start Service</string>
+    <string name="stop_service">Stop Service</string>
+    <string name="publish_message">Publish</string>
+    <string name="title_prefs">Preferences</string>
+    <string name="mqtt_settings">MQTT Settings</string>
 </resources>

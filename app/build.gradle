@@ -23,4 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile files('build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/wmqtt.jar')
+    compile files('/Users/Naila/AndroidStudioProjects/SCALE6/wmqtt.jar')
+    compile files('C:/Users/1089C/AndroidstudioProjects/SCALE6/wmqtt.jar')
 }

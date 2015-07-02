@@ -2,8 +2,10 @@ package uci.scale;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,12 +23,25 @@ public class MyActivity extends ActionBarActivity {
     public final static String V_IMP_MESSAGE = "@string/v_impaired_setting"; //test
     public final static String A_IMP_MESSAGE = "@string/a_impaired_setting"; //test
     public final static String E_CALL_MESSAGE = "@string/e_call_number"; //test
+    public final static String preferenceBrokerHost = "@string/preferenceBrokerHost"; //test
+    public final static String preferenceBrokerUser = "@string/preferenceBrokerUser"; //test
+
+    public GlobalActivity g;
+    private final int CHECK_CODE = 0x1;
+
     private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        g = (GlobalActivity)getApplication();
         setContentView(R.layout.activity_my);
+
+      //  SharedPreferences settings = getSharedPreferences(MQTTService.APP_ID, 0);
+      //  SharedPreferences.Editor editor = settings.edit();
+      //  editor.putString("broker", preferenceBrokerHost);
+      //  editor.putString("topic",  preferenceBrokerUser);
+      //  editor.commit();
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         final String e_call_number = sharedPref.getString(SettingsActivity.E_CALL_NUMBER, "");
@@ -48,6 +63,10 @@ public class MyActivity extends ActionBarActivity {
         });
         /////
 
+        //Speaker activity creation/check for tts engine
+        Intent check = new Intent();
+        check.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(check, CHECK_CODE);
     }
 
 
@@ -85,8 +104,8 @@ public class MyActivity extends ActionBarActivity {
 
     /** Called when the user clicks the Send button */
     public void sendAlertMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageAlertActivity.class);
-        TextView editText = (TextView) findViewById(R.id.button1);
+        Intent intent = new Intent(this, MQTTActivity.class);
+       /* TextView editText = (TextView) findViewById(R.id.button1);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         //Pass settings
@@ -96,7 +115,7 @@ public class MyActivity extends ActionBarActivity {
         String e_call_number = sharedPref.getString(SettingsActivity.E_CALL_NUMBER, "");
         intent.putExtra(V_IMP_MESSAGE, v_imp_mode);
         intent.putExtra(A_IMP_MESSAGE, a_imp_mode);
-        intent.putExtra(E_CALL_MESSAGE, e_call_number);
+        intent.putExtra(E_CALL_MESSAGE, e_call_number);*/
         startActivity(intent);
     }
     public void sendWarningMessage(View view) {
@@ -131,21 +150,34 @@ public class MyActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    //NEW: Speaker Stuff
+    //TODO possibly have a global speaker object, although it may be better to do it in each individual activity to save resources
+    //since the tts can be shut off after leaving the message activity
+    //TODO have the check occur in the sharedPreferencesChanged listener in MainActivity
 
-    public void calling(View view) {
-        // show a dialog calling
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("Calling!");
-        //TODO have setmessage use the e_call_number
-        alert.setMessage("+11(571)400-0000");
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == CHECK_CODE){
+            if(resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS){
+                Log.d("ACTIVITY", "Create speaker");
+                if (g == null)
+                {
+                    Log.d("ACTIVITY","WTF");
+                }
+                else
+                {
+                    g.speaker = new SpeakerActivity(this);
+                    g.speaker.speak("Testing one two three");
+                }
 
+            }else {
+                Log.d("ACTIVITY","Req install");
+                Intent install = new Intent();
+                install.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                startActivity(install);
+            }
+        }
     }
-    public void printStarter(View view) {
-        TextView v = (TextView) findViewById(R.id.button1);
-        int score = Integer.parseInt(v.getText().toString());
-        v.setText(""+score++);
-    }
-
 
 
 

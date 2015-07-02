@@ -3,9 +3,14 @@
     package="uci.scale" >
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
 
     <application
         android:allowBackup="true"
+        android:name=".GlobalActivity"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -44,6 +49,22 @@
         </activity>
         <activity
             android:name="uci.scale.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="uci.scale.MyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uci.scale.MyActivity" />
+        </activity>
+        <activity
+            android:name="uci.scale.MQTTActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="uci.scale.MyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uci.scale.MyActivity" />
+        </activity>
+        <activity
+            android:name="uci.scale.SpeakerActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName="uci.scale.MyActivity" >
             <meta-data
